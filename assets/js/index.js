@@ -2,6 +2,18 @@ $(function() {
 
     getUserInfo()
 
+    $('#btn').on('click', function() {
+        layer.confirm('确认退出?', { icon: 3, title: '提示' }, function(index) {
+            //do something
+
+            layer.close(index);
+            localStorage.removeItem('token')
+            location.href = '/login.html'
+        })
+    })
+
+
+
 
     function getUserInfo() {
         $.get('/my/userinfo', function(res) {
